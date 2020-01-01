@@ -1,4 +1,5 @@
 # Instrucciones
+## Angular stack MEAN
 * Navegador usar Firefox plugin Redux Dev Tools
 * En carpeta schema ejecutar npm run dev---->'nodemon [src/app.js]'(script)
 ***
