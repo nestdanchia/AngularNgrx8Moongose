@@ -1,0 +1,39 @@
+<mat-card class="flex-item">
+  <mat-card-header>
+    <mat-card-title>{{ customer.name | uppercase }}</mat-card-title>
+
+    <mat-card-subtitle>id:{{ customer.id}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-list>
+    <mat-list-item>
+
+      <button
+        mat-line
+        class="button"
+        mat-raised-button
+        color="warn"
+        (click)="customerDelet()">
+        Eliminar
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+  <!-- <img [src]="product.image" mat-card-image [alt]="product.title"> -->
+  <mat-card-content>
+    <i class="material-icons orange600">face</i>
+    <h5>{{ customer.name | uppercase }}</h5>
+
+  </mat-card-content>
+
+  <span style="flex: 1 1 auto;"></span>
+  <mat-card-actions>
+
+    <a
+      mat-mini-fab
+      routerLink="/customer/{{customer.id}}">
+      Ver detalle con routerLink
+    </a>
+  </mat-card-actions>
+
+</mat-card>

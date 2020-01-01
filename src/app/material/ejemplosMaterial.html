@@ -1,0 +1,32 @@
+<!---mat-button: Botón básico sin color de fondo
+mat-raised-button: Botón con sombra y con color de fondo
+mat-flat-button: Botón con color pero sin sombra
+mat-stroked-button: Botón con borde pero sin color de fondo
+mat-icon-button Botón circular para añadir un icono, es transparente
+mat-fab: Botón circular con fondo y sombra
+mat-mini-fab: Lo mismo que el anterior pero más pequeño
+-->
+<button mat-raised-button>text</button>
+<button mat-raised-button color="primary">text</button>
+<mat-button-toggle-group #group="matButtonToggleGroup">
+  <mat-button-toggle value="left">
+    <mat-icon>format_align_left</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="center">
+    <mat-icon>format_align_center</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="right">
+    <mat-icon>format_align_right</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="justify" disabled>
+    <mat-icon>format_align_justify</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+<div class="example-selected-value">Selected value: {{group.value}}</div>
+<!--     
+    .example-selected-value {
+  margin: 15px 0;
+}
+
+-->
+<mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>

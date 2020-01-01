@@ -1,0 +1,8 @@
+.flex-conteiner{
+    display:flex;
+    flex-direction: column;
+  
+    flex-wrap: wrap;
+    justify-content:space-around;
+    background-color:ghostwhite;
+}

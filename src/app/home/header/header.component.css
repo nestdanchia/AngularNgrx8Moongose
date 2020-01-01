@@ -1,0 +1,13 @@
+
+    
+  .flex-item{
+  
+    flex-direction: row;
+    
+}
+   
+  .ancla{
+    align-items:flex-start;
+    justify-content: space-between;
+    flex-grow: 1;
+  }

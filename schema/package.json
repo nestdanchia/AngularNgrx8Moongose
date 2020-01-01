@@ -1,0 +1,29 @@
+{
+  "name": "schema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.5",
+    "mongoose": "^5.7.12",
+    "npm": "^6.13.1",
+    "python-shell": "^1.0.8",
+    "validator": "^12.1.0"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "nodemon": "^2.0.2"
+  }
+}

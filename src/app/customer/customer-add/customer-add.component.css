@@ -1,0 +1,41 @@
+.example-container {
+    position: relative;
+    padding: 5px;
+  }
+  .example-card {
+    max-width: 400px;
+  }
+  .flex-item{
+    display:flex;
+     height: 20rem;
+     margin:2rem;
+     font-size: 0.9rem;
+
+ }
+  .submi{
+    display:flex;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .example-full-width {
+
+    width: 100%;
+  }
+
+  .example-full-width:nth-last-child() {
+    margin-bottom: 10px;
+  }
+
+  .button-row {
+    margin: 10px 0;
+  }
+
+  .mat-flat-button {
+    margin: 5px;
+  }
