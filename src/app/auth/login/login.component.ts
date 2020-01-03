@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ServiceService } from '../auth/authService/service.service';
+import { registerLocaleData } from '@angular/common';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -47,13 +48,18 @@ export class LoginComponent implements OnInit {
       const password = this.form.value.password;
       this.authService.login(email, password);
       this.router.navigate(['/customer/add']);
-     /* .then(data => {
+    }
+  }
+  register(){
+    this.router.navigate(['/auth/register']);
+  }
+
+}
+    /* .then(data => {
         this.router.navigate(['/cms']);
       })
       .catch(error => {
         console.error(error);
         this.openMessage(error.message);
       });*/
-    }
-  }
-}
+

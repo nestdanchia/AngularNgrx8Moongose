@@ -1,1 +1,61 @@
-<p>register works!</p>
+<mat-card>
+  <mat-card-content>
+    <form novalidate [formGroup]="form" class="auth-form">
+    <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="id"
+          formControlName="id">
+
+        <mat-error>
+          <span *ngIf="!form.get('id').valid && form.get('id').touched">Please enter cust id</span>
+        </mat-error>
+        <span>{{ getError('id')}}</span>
+      </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name">
+
+        <mat-error>
+          <span *ngIf="!form.get('name').valid && form.get('name').touched">Please enter cust Name</span>
+        </mat-error>
+        <span>{{ getError('name')}}</span>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Digite tu correo" matInput type="email" formControlName="email">
+        <mat-error *ngIf="emailField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="emailField.hasError('email')" >
+          Debe ser un email valido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Digite tu password" matInput type="password" formControlName="password">
+        <mat-error *ngIf="passwordField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="passwordField.hasError('minlength')" >
+          Minimo debe tener 8 letras
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Confirma tu password" matInput type="password" formControlName="confirmPassword">
+        <mat-error *ngIf="confirmPasswordField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="confirmPasswordField.hasError('minlength')" >
+          Minimo debe tener 8 letras
+        </mat-error>
+        <mat-error *ngIf="form.hasError('passwordNotValid')" >
+          El password no es igual
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="register()" type="button" [disabled]="form.invalid">Registrar</button>
+  </mat-card-actions>
+</mat-card>

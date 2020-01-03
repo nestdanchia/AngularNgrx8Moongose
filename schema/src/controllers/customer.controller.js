@@ -145,7 +145,36 @@ exports.customer_create = async (req, res) => {
 
 
 };
+exports.register = async (req, res) => {
+  const customer = new Customer(
+    {
 
+      name: req.body.name,
+
+      email:req.body.email,
+      password:req.body.password,
+      id:req.body.id
+
+    }
+  );
+  try {
+    await customer.save();
+ // todo customer creado dispone de un token inicial
+ // crado con su _id
+ console.log('!!!!!!register',customer);
+
+    /*res.json({
+      message: 'Successful generate token inicial debera logearse',
+      token
+  });*/
+    res.status(201).send({ customer })
+    //.send(customer)
+  } catch (error) {
+    res.status(500).send(error);
+  }
+
+
+};
 exports.test = function (req, res) {
   res.send('Greetings from the Test controller!');
 }

@@ -4,7 +4,7 @@ const customerRoute=express.Router;
 const Customer = require('../models/customer');
 
 const customerControler = require('../controllers/customer.controller');
-
+router.post('/register',customerControler.register);
 router.post('/login',customerControler.login);
 // a simple test url to check that all of our files are communicating correctly.
 router.get('/test', customerControler.test);
