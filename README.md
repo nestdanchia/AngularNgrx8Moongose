@@ -1,4 +1,5 @@
 # Instrucciones
+## Angular stack MEAN
 * Navegador usar Firefox plugin Redux Dev Tools
 * En carpeta schema ejecutar npm run dev---->'nodemon [src/app.js]'(script)
 ***
@@ -11,7 +12,7 @@
   * En Carpeta schema ejecutar npm run dev
   * Ruta Protegida [http://localhost:3000/api/customer/add]
   * mongoose su uso con metodo Statics y manejo de la BD
-  * Acceso a ruta propegida administrador nestdan@gmail.com  password 12345678
+  * Acceso a ruta propegida CREAR EN BASE DE DATOSAL PRIMER USUARIO CON E-MAIL Y PASSWORD
   * Todo Customer creado por el Administrator es un nuevo Administrador 
   * Ruta [http://localhost:3000/api/priv] disponoble con middleware para nuevas rutas 
 *  Angular
