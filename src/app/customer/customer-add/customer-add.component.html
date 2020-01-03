@@ -25,18 +25,19 @@
         <input
           matInput
           placeholder="Name"
-          formControlName="name">
+          formControlName="name"
+          >
 
         <mat-error>
           <span *ngIf="!custForm.get('name').valid && custForm.get('name').touched">Please enter cust Name</span>
         </mat-error>
         <span>{{ getError('name')}}</span>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="invisible">
         <input
           matInput
           placeholder="id"
-          formControlName="id">
+          formControlName="id"  >
 
         <mat-error>
           <span *ngIf="!custForm.get('id').valid && custForm.get('id').touched">Please enter cust Id</span>

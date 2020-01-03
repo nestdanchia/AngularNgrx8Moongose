@@ -12,6 +12,12 @@
      font-size: 0.9rem;
 
  }
+ .invisible{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
   .submi{
     display:flex;
     margin-bottom: 40px;

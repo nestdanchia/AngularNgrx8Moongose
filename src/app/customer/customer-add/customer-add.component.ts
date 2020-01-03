@@ -21,7 +21,11 @@ export class CustomerAddComponent implements OnInit {
   name: string;
   email:string;
   password:string;
-  id:string;
+  //id:string;
+  public d = new Date();
+   public n = (this.d.valueOf()).toString();
+  //this.form.value.id
+      public id=this.n;
   done: boolean = true;
   custom: Customer;
   updated_at: Date = null;
@@ -30,14 +34,15 @@ export class CustomerAddComponent implements OnInit {
     private store: Store<CustomersState>,
     private service: DetailService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+
   ) { }
 
   ngOnInit() {
     this.custForm = this.formBuilder.group({
       name: [null, Validators.required],
       done: [true, Validators.required],
-      id:[null,Validators.required],
+      id:[this.id,Validators.required],
       email:[null,Validators.required],
       password:[null,Validators.required]
       //'updated_at' : [null, Validators.required]
@@ -58,13 +63,20 @@ export class CustomerAddComponent implements OnInit {
     this.ActionAdd();
 
     // this.custom
+    /*
+    .subscribe(
+        data => {this.router.navigate(['/customer'])},
+        err=>console.log('error regitro Angular',err))
+
+      }
+    */
     this.service.addCustomer(form)
       .subscribe(res => {
 
         // this.Customers();
         //let id = res['id'];
         this.isLoadingResults = false;
-
+        this.router.navigate(['/customer']);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;
@@ -94,6 +106,11 @@ export class CustomerAddComponent implements OnInit {
       this.customers = customers
     });
   }
+  /*
+  set disableControl( condition : boolean ) {
+    const action = condition ? 'disable' : 'enable';
+    this.ngControl.control[action]();
+  }*/
 
 }
 /*

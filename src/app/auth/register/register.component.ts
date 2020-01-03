@@ -12,6 +12,10 @@ import { MyValidators } from '../auth/utils/validators';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
+  public d = new Date();
+   public n = (this.d.valueOf()).toString();
+  //this.form.value.id
+      public id=this.n;
   constructor(
     private formBuilder: FormBuilder,
     private authService: ServiceService,
@@ -29,7 +33,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [ Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [ Validators.required, Validators.minLength(8)]],
       name:['', [ Validators.required]],
-      id:['', [ Validators.required]],
+      id:[this.id, [ Validators.required]],
     }, {
       validators: [ MyValidators.isValidPassword ]
     });
@@ -64,8 +68,9 @@ export class RegisterComponent implements OnInit {
       const email = this.form.value.email;
       const password = this.form.value.confirmPassword;
       const name = this.form.value.name;
-      const id=this.form.value.id;
-      this.authService.register(email, password,name,id)
+
+
+      this.authService.register(email, password,name,this.id)
       .subscribe(
         data => {this.router.navigate(['/customer'])},
         err=>console.log('error regitro Angular',err))
