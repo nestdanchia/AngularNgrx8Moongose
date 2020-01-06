@@ -30,7 +30,10 @@
         </mat-error>
         <mat-error *ngIf="emailField.hasError('email')" >
           Debe ser un email valido
-        </mat-error>
+</mat-error>
+<mat-error *ngIf="emailField.hasError('hasEmail')" >
+          ya existe
+</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input placeholder="Digite tu password" matInput type="password" formControlName="password">
@@ -58,4 +61,8 @@
   <mat-card-actions>
     <button mat-raised-button (click)="register()" type="button" [disabled]="form.invalid">Registrar</button>
   </mat-card-actions>
+
 </mat-card>
+<p>
+  Form Status: {{ form.status }}
+</p>

@@ -2,11 +2,12 @@
 import { Injectable } from '@angular/core';
 import * as CustomerSelector from 'src/app/redux/customer.selector';
 import { Observable } from 'rxjs';
+import { map,filter } from 'rxjs/operators';
 import { Customer } from 'src/app/models/customer';
 import { Store } from '@ngrx/store';
 import { CustomersState } from 'src/app/redux/stateReducers';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+;
 
 
 const httpOptions = {
@@ -45,6 +46,20 @@ export class DetailService {
     //this.customers$=this.getCustomerList$();
     return this.customers$;
   }
+public hasEmail(email:string):Observable<boolean>{
+   return this.getAll()
+   .pipe(
+     map(customers=>{
+       console.log('service compara email:',email)
+       const customExit= customers.some(custom=>custom.email === email);
+        //const customExiste= customers.filter(custom=>custom.email == email);
+         //console.log(customExit);
+       return customExit ? true :false;
+     })
+
+
+   )
+  }
   public delete(id: string): Observable<Customer> {
     const url = `${apiUrl}/delete/${id}`;
     console.log('_id esde service Angular',id)
@@ -61,7 +76,14 @@ export class DetailService {
   public getAll(): Observable<Customer[]> {
     return this.http.get<Customer[]>('http://localhost:3000/api/customer')
   }
+  checkEmailNotTaken(email: string) {
+    return this.http.get<Customer[]>('http://localhost:3000/api/customer')
+      .pipe(
 
+      map(users => users.filter(user => user.email === email)),
+      map(users => !users.length)
+      )
+  }
   public getCustomerList$(): Observable<Customer[]> {
     return this.store.select(CustomerSelector.getCustomers);
   }
