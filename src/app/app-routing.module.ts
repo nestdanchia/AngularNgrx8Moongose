@@ -2,8 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
-//import { CommonModule } from '@angular/common';
-// http://developinginspanish.com/2018/03/13/tutorial-angular-7-enrutamiento/
+
 const appRoutes: Routes = [
   //Esta ruta redirige una URL que coincide con el path vacío a la ruta del path '/customer'.
   {

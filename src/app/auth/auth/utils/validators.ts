@@ -1,32 +1,33 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, AsyncValidator, AsyncValidatorFn } from '@angular/forms';
 import { DetailService } from 'src/app/services/detail.service';
 import { map } from 'rxjs/operators';
 export class MyValidators {
 
- service:DetailService
+  service: DetailService
 
 
-static hasEmail(service:DetailService ){
-return (ctrl:AbstractControl)=>{
-  const email=ctrl.value;
-  console.log(email);
-return service.hasEmail(email).pipe(
-  map(hasEmail=>{hasEmail?{ hasEmail: true }:null
+  static hasEmail(service: DetailService) {
+    return  (ctrl: AbstractControl) => {
+      const email = ctrl.value;
+      console.log(email);
+      return service.hasEmail(email).pipe(
+        map(hasEmail => {
+          console.log('hasEmail:', hasEmail); hasEmail ? { hasEmail: true }:null
 
 
-  })
-)
-}
-}
-
-static isValidPassword(form: AbstractControl) {
-  const password = form.get('password');
-  const confirmPassword = form.get('confirmPassword');
-  if (confirmPassword.value !== password.value) {
-    return { passwordNotValid: true };
+        })
+      )
+    }
   }
-  return null;
-}
+
+  static isValidPassword(form: AbstractControl) {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    if (confirmPassword.value !== password.value) {
+      return { passwordNotValid: true };
+    }
+    return null;
+  }
 
 }
 

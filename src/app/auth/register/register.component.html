@@ -1,6 +1,19 @@
 <mat-card>
   <mat-card-content>
-    <form novalidate [formGroup]="form" class="auth-form">
+    <form novalidate [formGroup]="form" (mgSubmit)="register()"class="auth-form">
+<mat-form-field class="example-full-width">
+        <input
+          matInput
+          type="date"
+          placeholder="date"
+          formControlName="date">
+<mat-error>
+          <span *ngIf="!form.get('date').valid && form.get('date').touched">Please enter a date</span>
+        </mat-error>
+        <span>{{ getError('date')}}</span>
+
+      </mat-form-field>
+
     <mat-form-field class="invisible">
         <input
           matInput
@@ -19,21 +32,27 @@
           formControlName="name">
 
         <mat-error>
-          <span *ngIf="!form.get('name').valid && form.get('name').touched">Please enter cust Name</span>
+          <span *ngIf="showErrors('name')">Please enter cust Name</span>
         </mat-error>
         <span>{{ getError('name')}}</span>
       </mat-form-field>
       <mat-form-field>
-        <input placeholder="Digite tu correo" matInput type="email" formControlName="email">
+        <input placeholder="Digite tu correo"
+         matInput type="email"
+         formControlName="email">
         <mat-error *ngIf="emailField.hasError('required')" >
           El campo es obligatorio
         </mat-error>
         <mat-error *ngIf="emailField.hasError('email')" >
           Debe ser un email valido
 </mat-error>
-<mat-error *ngIf="emailField.hasError('hasEmail')" >
-          ya existe
+<mat-error *ngIf="form.get('email').errors?.hasEmail " >
+          Ya Existe!!!!!!!!
 </mat-error>
+
+<mat-error>
+          <span *ngIf="showErrors('email')">Please enter email valid</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input placeholder="Digite tu password" matInput type="password" formControlName="password">
@@ -59,10 +78,12 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="register()" type="button" [disabled]="form.invalid">Registrar</button>
+    <button mat-raised-button (click)="register()" type="submit" [disabled]="form.invalid">Registrar</button>
   </mat-card-actions>
 
 </mat-card>
-<p>
-  Form Status: {{ form.status }}
-</p>
+<mat-list>
+ <mat-list-item>Form Status: {{ form.status }} </mat-list-item>
+ <mat-list-item> {{form.value | json}} </mat-list-item>
+{{emailField.errors|json}}
+</mat-list>

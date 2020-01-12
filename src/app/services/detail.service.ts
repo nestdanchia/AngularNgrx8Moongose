@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import * as CustomerSelector from 'src/app/redux/customer.selector';
 import { Observable } from 'rxjs';
-import { map,filter } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { Customer } from 'src/app/models/customer';
 import { Store } from '@ngrx/store';
 import { CustomersState } from 'src/app/redux/stateReducers';
@@ -21,15 +21,13 @@ const apiUrl = "http://localhost:3000/api";
 export class DetailService {
 
   private customers$: Observable<Customer[]> = this.getCustomerList$();
-  //store.select(
-   // state => state.customer.customers
-  //);
+
 
   customers: Customer[];
   constructor(
     private store: Store<CustomersState>,
     private http: HttpClient,
-   //private customers$: Observable<Customer[]>
+    //private customers$: Observable<Customer[]>
   ) {
 
   }
@@ -46,23 +44,24 @@ export class DetailService {
     //this.customers$=this.getCustomerList$();
     return this.customers$;
   }
-public hasEmail(email:string):Observable<boolean>{
-   return this.getAll()
-   .pipe(
-     map(customers=>{
-       console.log('service compara email:',email)
-       const customExit= customers.some(custom=>custom.email === email);
-        //const customExiste= customers.filter(custom=>custom.email == email);
-         //console.log(customExit);
-       return customExit ? true :false;
-     })
+  // no se utiliza se usa directiva pesonalizada async
+  public hasEmail(email: string): Observable<boolean> {
+    return this.getAll().pipe(
+
+      map(customers => {
+        console.log('service compara email:', email)
+        const customExit = customers.some(custom => custom.email === email);
 
 
-   )
+        return customExit ? true : false;
+      })
+    )
+
+
   }
   public delete(id: string): Observable<Customer> {
     const url = `${apiUrl}/delete/${id}`;
-    console.log('_id esde service Angular',id)
+    console.log('_id esde service Angular', id)
     return this.http.delete<Customer>(url, httpOptions)
 
 
@@ -80,8 +79,8 @@ public hasEmail(email:string):Observable<boolean>{
     return this.http.get<Customer[]>('http://localhost:3000/api/customer')
       .pipe(
 
-      map(users => users.filter(user => user.email === email)),
-      map(users => !users.length)
+        map(users => users.filter(user => user.email === email)),
+        map(users => !users.length)
       )
   }
   public getCustomerList$(): Observable<Customer[]> {

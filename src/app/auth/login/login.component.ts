@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   }
   private buildForm() {
     this.form = this.formBuilder.group({
-      email: ['', [ Validators.required, Validators.email]],
-      password: ['', [ Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
@@ -50,16 +50,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/customer/add']);
     }
   }
-  register(){
+  register() {
     this.router.navigate(['/auth/register']);
   }
 
 }
-    /* .then(data => {
-        this.router.navigate(['/cms']);
-      })
-      .catch(error => {
-        console.error(error);
-        this.openMessage(error.message);
-      });*/
+
 

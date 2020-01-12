@@ -11,7 +11,7 @@ export interface Subject {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  visible = true;
+  /*visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
@@ -37,7 +37,7 @@ export class AppComponent {
   }
 
   /* Date */
-    date(e) {
+   /* date(e) {
       var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
       this.myForm.get('dob').setValue(convertDate, {
         onlyself: true
@@ -45,7 +45,7 @@ export class AppComponent {
     }
 
       /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
+  /*add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
     // Add language
@@ -59,14 +59,15 @@ export class AppComponent {
   }
 
   /* Remove dynamic languages */
-  remove(subject: Subject): void {
+ /* remove(subject: Subject): void {
     const index = this.SubjectsArray.indexOf(subject);
     if (index >= 0) {
       this.SubjectsArray.splice(index, 1);
     }
-  }  
+  }
 
   submitForm() {
     console.log(this.myForm.value)
   }
+  */
 }
