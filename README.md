@@ -1,12 +1,12 @@
 # Instrucciones
 ## Angular 8 Stack MEAN 
-**conexion a REST API**
- **consulta de datos**
-**Aplicacion SPA**
-**Rutas aplicando Lazzy Loading**
+* conexion a REST API
+ *consulta de datos
+* Aplicacion SPA
+* Rutas aplicando Lazzy Loading
 **Estructura Modular**
-**Navegador usar Firefox plugin Redux Dev Tools**
-**En carpeta schema ejecutar npm run dev---->'nodemon [src/app.js]'(script)**
+* Navegador usar Firefox plugin Redux Dev Tools
+* En carpeta schema ejecutar npm run dev---->'nodemon [src/app.js]'(script)**
 ***
 **Uso de libreria de estilos Angular Material creacion de componentes**
 **Backend MongoDB**
