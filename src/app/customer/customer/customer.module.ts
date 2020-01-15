@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerAddComponent } from '../customer-add/customer-add.component';
 import { StoreModule } from '@ngrx/store';
 import { customerReducers } from 'src/app/redux/stateReducers';
+//import { CustomerValidatorDirective } from 'src/app/auth/auth/authService/unique-email-validator.service';
 
 
 // https://www.angularjswiki.com/angular/buttons-in-angular-using-material-design-mat-button-example/
@@ -18,12 +19,13 @@ import { customerReducers } from 'src/app/redux/stateReducers';
     CustomerComponent,
     CustomersViewComponent,
 CustomerDetailComponent,
-    CustomerAddComponent
+    CustomerAddComponent,
+   // CustomerValidatorDirective
   ],
   imports: [
     CommonModule,
     FormsModule,
-    
+
     ReactiveFormsModule,
     CustomerRoutingModule,
     MaterialModule,

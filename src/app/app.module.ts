@@ -18,12 +18,13 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NotFoundComponent } from "./core/not-found/not-found.component";
 import { MaterialModule } from './material/material.module';
 import { GlobalModule } from './auth/register/global/global.module';
+import { CustomerValidatorDirective } from './auth/auth/authService/unique-email-validator.service';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, NotFoundComponent
+  declarations: [AppComponent, NotFoundComponent,CustomerValidatorDirective
 
   ],
   imports: [

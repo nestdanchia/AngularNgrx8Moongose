@@ -30,7 +30,7 @@ export class UniqueEmailValidatorService implements AsyncValidator {
     }
   ]
 })
-export class UniqueAlterEgoValidatorDirective {
+export class CustomerValidatorDirective {
   constructor(private validator:  UniqueEmailValidatorService) {}
 
   validate(control: AbstractControl) {

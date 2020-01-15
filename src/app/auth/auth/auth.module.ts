@@ -9,7 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 //import { AuthInterceptorService } from '../register/global/auth-interceptor.service';
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
-import { UniqueAlterEgoValidatorDirective } from './authService/unique-email-validator.service';
+//import { CustomerValidatorDirective } from './authService/unique-email-validator.service';
 //import { FormTools } from './utils/formErrors/formErrors';
 
 // https://www.tutorialesprogramacionya.com/angularya/detalleconcepto.php?punto=32&codigo=32&inicio=20
@@ -26,7 +26,7 @@ route guards are interfaces which can tell the router
   declarations: [
     LoginComponent,
     RegisterComponent,
-    UniqueAlterEgoValidatorDirective
+    //CustomerValidatorDirective
   ],
   imports: [
     CommonModule,

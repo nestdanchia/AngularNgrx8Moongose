@@ -7,6 +7,7 @@ import * as CustomerPageActions from "../../redux/customer.actions";
 import { Store } from '@ngrx/store';
 import { CustomersState } from 'src/app/redux/stateReducers';
 import { Observable } from 'rxjs';
+import { UniqueEmailValidatorService } from 'src/app/auth/auth/authService/unique-email-validator.service';
 //
 @Component({
   selector: 'app-customer-add',
@@ -35,6 +36,9 @@ export class CustomerAddComponent implements OnInit {
     private service: DetailService,
     private router: Router,
     private formBuilder: FormBuilder,
+    private uniqueEmailValidator: UniqueEmailValidatorService
+
+
 
   ) { }
 
@@ -43,7 +47,11 @@ export class CustomerAddComponent implements OnInit {
       name: [null, Validators.required],
       done: [true, Validators.required],
       id: [this.id, Validators.required],
-      email: [null, Validators.required],
+      //email: [null, Validators.required],
+      email: ['', [Validators.required, Validators.email],//sync validators
+        [this.uniqueEmailValidator.validate.bind(this.uniqueEmailValidator)
+        ]
+      ],
       password: [null, Validators.required]
       //'updated_at' : [null, Validators.required]
     });
