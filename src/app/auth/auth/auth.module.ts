@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // https://www.positronx.io/angular-jwt-user-authentication-tutorial/
@@ -34,6 +35,7 @@ route guards are interfaces which can tell the router
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+   FormsModule
   ],
   providers:[
     //AuthGuardService,

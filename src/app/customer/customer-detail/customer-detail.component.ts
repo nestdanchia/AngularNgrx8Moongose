@@ -7,6 +7,7 @@ import * as CustomerPageActions from "../../redux/customer.actions";
 import { Store,select } from "@ngrx/store";
 import { CustomersState } from 'src/app/redux/stateReducers';
 import { DetailService } from '../../services/detail.service';
+//import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-customer-detail',
   templateUrl: './customer-detail.component.html',
@@ -20,14 +21,14 @@ export class CustomerDetailComponent implements OnInit {
     custom:Customer;
     customers:Customer[];
     public customers$: Observable<Customer[]>
-    
-  
+
+
   constructor(
     private service:DetailService,
     private activatedRoute:ActivatedRoute,
     private store: Store<CustomersState>,
-  
-  ) 
+
+  )
   {/*no lo lee desde el constructor
     this.activatedRoute.params
     .subscribe((params:Params)=>{
@@ -37,23 +38,51 @@ export class CustomerDetailComponent implements OnInit {
       //this.custom=this.getCustom(id)
     });*/
     //this.customers$ = store.pipe(select('customer.customers'));
+   /*
+   como cambiar un observable por otro con swithMap
+   sin subscribirse cuando hay un subscribe anidado
+   puedo enviar tambien otros parametros a pipe para responder a otros observables
+  this.custom$= this.activatedRoute.params
+       .pipe(
+         switchMap((params)=>{
+          const id=params.id;
+          debe retornar un observable getCustom por ejemplo con of
+         return this.service.getCustom(id)
 
+         })
+       );
+        en  el html (custom$ ! async) as custom
+   */
   }
-    
 
 
-  
+
+
 
   ngOnInit(): void {
   //error no puede leer la propiedad customer  this.customers$=this.service.getCustomerList$();
-    // 
+    //
+
+   /*
+
+  busco en el store no uso subscribir a un observable
+  anidamiento evitarlo puede afectar al rendimiento
+   this.activatedRoute.params.subscribe((params)=>{
+   const id=params.id;
+   this.services.getCustom(id)
+   .subscribe(custom=>{
+     this.custom=custom;
+    });
+    )};
+  }
+   */
   this.id=this.activatedRoute.snapshot.params["id"];
   this.custom=this.service.getCustom(this.id);
         console.log('detail',this.custom);
         this.store.dispatch(
           CustomerPageActions.customerSelected({ customer: this.custom })
         );
-      
+
       this.refrescar()
     }
      public refrescar(){
@@ -69,7 +98,7 @@ export class CustomerDetailComponent implements OnInit {
   }
 /*
  // this.customers$=this.service.getCustomerList$();
-       
+
        this.service.getCustomers$().subscribe(customers=>{
         customers=this.customers
       });
@@ -86,11 +115,11 @@ export class CustomerDetailComponent implements OnInit {
 */
 //this.customers$ = this.store.pipe(select('customer.customers'));
 
-  
-  
 
-   
-  
+
+
+
+
 
 /*
 import { Component, OnInit } from "@angular/core";

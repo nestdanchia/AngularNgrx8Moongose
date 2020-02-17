@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ServiceService } from '../auth/authService/service.service';
 import { registerLocaleData } from '@angular/common';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -49,6 +50,9 @@ export class LoginComponent implements OnInit {
       this.authService.login(email, password);
       this.router.navigate(['/customer/add']);
     }
+  }
+  volver(){
+    this.router.navigate(['/customer']);
   }
   register() {
     this.router.navigate(['/auth/register']);

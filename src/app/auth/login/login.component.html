@@ -1,5 +1,6 @@
-<mat-card>
-  <mat-card-content>
+
+<mat-card class="example-form" [style.backgroundColor]="' #e6f2ff'">
+  <mat-card-content class="example-full-width">
     <form novalidate [formGroup]="form" class="login-form">
       <mat-form-field class="auth-form">
         <input placeholder="Digite tu correo" matInput type="email" formControlName="email">
@@ -26,5 +27,8 @@
   </mat-card-actions>
   <mat-card-actions>
     <button mat-raised-button (click)="register()" type="button" >Registrarse</button>
+  </mat-card-actions>
+  <mat-card-actions>
+    <button mat-raised-button (click)="volver()" type="button" >Home Page</button>
   </mat-card-actions>
 </mat-card>
