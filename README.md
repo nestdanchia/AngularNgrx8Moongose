@@ -20,7 +20,7 @@
   * Instalar LUEGO EJECUTAR mongod.exe
   * En Windows mongod.exe --journal --storageEngine=mmapv1
   *  [mongodb://localhost:27017/pruebaDB]
-## Servivor
+## Servidor
   # En Carpeta schema ejecutar npm run dev
   * Ruta Protegida [http://localhost:3000/api/customer/add]
   * mongoose su uso con metodo Statics y manejo de la BD
