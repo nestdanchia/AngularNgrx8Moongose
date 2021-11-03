@@ -20,7 +20,7 @@
     "mongoose": "^5.7.12",
     "npm": "^6.13.1",
     "python-shell": "^1.0.8",
-    "validator": "^12.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "bcryptjs": "^2.4.3",
